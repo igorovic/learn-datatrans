@@ -24,6 +24,11 @@ const Cart: FC<any> = () => {
     const R = await axios.post("/api/pay/init", {
       currency: "CHF",
       refno: "test-" + Date.now(),
+      autoSettle: true,
+      option: {
+        //rememberMe: true,
+        createAlias: true,
+      },
       amount: total,
       redirect: {
         successUrl: "https://localhost/pay/success",
@@ -33,7 +38,6 @@ const Cart: FC<any> = () => {
     });
 
     if (R.data?.transactionId) {
-      //window.Datatrans.startPayment({ transactionId: R.data.transactionId });
       setTransactionId(R.data.transactionId);
       showLightbox(true);
     }
