@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
 @layer components {
   .cart {
     position: absolute;
@@ -9,5 +18,7 @@
     right: 0;
     width: 400px;
     height: 600px;
+    background-color: #282c34;
+    @apply p-2 rounded;
   }
 }

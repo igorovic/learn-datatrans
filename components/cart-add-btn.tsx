@@ -1,7 +1,14 @@
 import type { FC } from "react";
 
-const CartAddBtn: FC<any> = () => {
-  return <div className="btn btn-primary">Ajouter au panier</div>;
+interface Props {
+  addHandler: () => void;
+}
+const CartAddBtn: FC<Props> = ({ addHandler }) => {
+  return (
+    <div className="btn btn-primary" onClick={addHandler}>
+      Ajouter au panier
+    </div>
+  );
 };
 
 export default CartAddBtn;

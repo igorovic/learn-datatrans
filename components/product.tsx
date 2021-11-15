@@ -3,6 +3,9 @@ import Image from "next/image";
 import Price from "./price";
 import CartAddBtn from "./cart-add-btn";
 
+import { useAppDispatch } from "app/hooks";
+import { add_item } from "app/features/featCart";
+
 interface Props {
   price: number;
   name: string;
@@ -10,6 +13,10 @@ interface Props {
 }
 
 const Product: FC<Props> = ({ price, name, image }) => {
+  const dispatch = useAppDispatch();
+  const addHandler = () => {
+    dispatch(add_item({ price, name, quantity: 1 }));
+  };
   return (
     <div className="card">
       <div className="p-4">
@@ -28,7 +35,7 @@ const Product: FC<Props> = ({ price, name, image }) => {
         <Price amount={price} />
       </div>
       <div className="p-4 card-actions">
-        <CartAddBtn />
+        <CartAddBtn addHandler={addHandler} />
       </div>
     </div>
   );
