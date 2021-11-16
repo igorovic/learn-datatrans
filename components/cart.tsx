@@ -23,11 +23,17 @@ const Cart: FC<any> = () => {
   const initTransaction = async () => {
     const R = await axios.post("/api/pay/init", {
       currency: "CHF",
-      refno: "test-" + Date.now(),
-      autoSettle: true,
+      refno: "dreg-" + Date.now(),
+      autoSettle: false,
       option: {
         //rememberMe: true,
         createAlias: true,
+      },
+      customer: {
+        id: 1,
+        title: "Ms",
+        firstName: "Igor",
+        lastName: "Petrovic",
       },
       amount: total,
       redirect: {

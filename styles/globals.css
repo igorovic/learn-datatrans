@@ -21,4 +21,9 @@
     background-color: #282c34;
     @apply p-2 rounded;
   }
+
+  .bulle {
+    border-radius: 25% 25% 25% 0;
+    min-width: 230px;
+  }
 }
